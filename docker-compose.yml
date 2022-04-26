@@ -1,0 +1,17 @@
+version: "3.8"
+
+networks:
+  ddruganovru:
+    external: true
+
+services:
+  blog.ddruganov.ru.nuxt:
+    networks:
+      - ddruganovru
+    build:
+      context: .
+      dockerfile: ./docker/nuxt/Dockerfile
+    ports:
+      - 6010:6010
+    volumes:
+      - ./:/app
